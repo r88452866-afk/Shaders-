@@ -1,0 +1,39 @@
+local Lighting = game:GetService("Lighting")
+
+Lighting.Brightness = 2.2
+Lighting.GlobalShadows = true
+Lighting.EnvironmentDiffuseScale = 1
+Lighting.EnvironmentSpecularScale = 1
+Lighting.ExposureCompensation = 0.1
+Lighting.ClockTime = 15
+
+local ColorCorrection = Instance.new("ColorCorrectionEffect")
+ColorCorrection.TintColor = Color3.fromRGB(195, 140, 255)
+ColorCorrection.Contrast = 0.15
+ColorCorrection.Saturation = 0.25
+ColorCorrection.Brightness = 0.04
+ColorCorrection.Parent = Lighting
+
+local Bloom = Instance.new("BloomEffect")
+Bloom.Intensity = 1.15
+Bloom.Size = 46
+Bloom.Threshold = 1
+Bloom.Parent = Lighting
+
+local SunRays = Instance.new("SunRaysEffect")
+SunRays.Intensity = 0.09
+SunRays.Spread = 0.85
+SunRays.Parent = Lighting
+
+local Atmosphere = Instance.new("Atmosphere")
+Atmosphere.Density = 0.5
+Atmosphere.Offset = -0.25
+Atmosphere.Color = Color3.fromRGB(185, 120, 255)
+Atmosphere.Decay = Color3.fromRGB(65, 40, 110)
+Atmosphere.Haze = 4
+Atmosphere.Glare = 0.1
+Atmosphere.Parent = Lighting
+
+Lighting.FogColor = Color3.fromRGB(120, 80, 180)
+Lighting.FogStart = 35
+Lighting.FogEnd = 180
