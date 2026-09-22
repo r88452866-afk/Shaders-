@@ -227,7 +227,7 @@ Tab:CreateButton({
 
 local Tab2 = Window:CreateTab("follow me", nil) -- Explicitly using nil for the icon element
 Tab2:CreateButton({
-   Name = "follow my tik tok _turner",
+   Name = "follow my tik tok 41_turner",
    Callback = function()
         -- This function is empty as intended
    end,
