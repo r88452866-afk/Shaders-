@@ -1,39 +1,234 @@
-local Lighting = game:GetService("Lighting")
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-Lighting.Brightness = 2.2
-Lighting.GlobalShadows = true
-Lighting.EnvironmentDiffuseScale = 1
-Lighting.EnvironmentSpecularScale = 1
-Lighting.ExposureCompensation = 0.1
-Lighting.ClockTime = 15
+local Window = Rayfield:CreateWindow({
+   Name = "TURNER'S SHADER'S",
+   Icon = 0, -- Set to 0 to disable icons and avoid load hangs
+   LoadingTitle = "Loading Lighting Profiles...",
+   LoadingSubtitle = "TURNER 41_TURNER ON DISCORD 🤪🤪",
+   Theme = "Amberglow", -- Added mandatory theme string to fix loading errors
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false,
+   ConfigurationSaving = {
+      Enabled = false
+   },
+   Discord = {
+      Enabled = false
+   },
+   KeySystem = false
+})
 
-local ColorCorrection = Instance.new("ColorCorrectionEffect")
-ColorCorrection.TintColor = Color3.fromRGB(195, 140, 255)
-ColorCorrection.Contrast = 0.15
-ColorCorrection.Saturation = 0.25
-ColorCorrection.Brightness = 0.04
-ColorCorrection.Parent = Lighting
+local Tab = Window:CreateTab("Lighting Styles", nil) -- Explicitly using nil for the icon element
 
-local Bloom = Instance.new("BloomEffect")
-Bloom.Intensity = 1.15
-Bloom.Size = 46
-Bloom.Threshold = 1
-Bloom.Parent = Lighting
+-- Helper function to clear old instances so styles don't stack and lag
+local function ClearCurrentEffects()
+    local Lighting = game:GetService("Lighting")
+    for _, effect in ipairs(Lighting:GetChildren()) do
+        if effect:IsA("ColorCorrectionEffect") or effect:IsA("BloomEffect") or effect:IsA("SunRaysEffect") or effect:IsA("Atmosphere") then
+            effect:Destroy()
+        end
+    end
+end
 
-local SunRays = Instance.new("SunRaysEffect")
-SunRays.Intensity = 0.09
-SunRays.Spread = 0.85
-SunRays.Parent = Lighting
+Tab:CreateButton({
+   Name = "Green / Nature Lighting",
+   Callback = function()
+        ClearCurrentEffects()
+        
+        local Lighting = game:GetService("Lighting")
+        Lighting.Brightness = 2.2
+        Lighting.GlobalShadows = true
+        Lighting.EnvironmentDiffuseScale = 1
+        Lighting.EnvironmentSpecularScale = 1
+        Lighting.ExposureCompensation = 0.1
+        Lighting.ClockTime = 15
 
-local Atmosphere = Instance.new("Atmosphere")
-Atmosphere.Density = 0.5
-Atmosphere.Offset = -0.25
-Atmosphere.Color = Color3.fromRGB(185, 120, 255)
-Atmosphere.Decay = Color3.fromRGB(65, 40, 110)
-Atmosphere.Haze = 4
-Atmosphere.Glare = 0.1
-Atmosphere.Parent = Lighting
+        local ColorCorrection = Instance.new("ColorCorrectionEffect")
+        ColorCorrection.TintColor = Color3.fromRGB(170, 205, 155)
+        ColorCorrection.Contrast = 0.15
+        ColorCorrection.Saturation = 0.2
+        ColorCorrection.Brightness = 0.04
+        ColorCorrection.Parent = Lighting
 
-Lighting.FogColor = Color3.fromRGB(120, 80, 180)
-Lighting.FogStart = 35
-Lighting.FogEnd = 180
+        local Bloom = Instance.new("BloomEffect")
+        Bloom.Intensity = 1.15
+        Bloom.Size = 46
+        Bloom.Threshold = 1
+        Bloom.Parent = Lighting
+
+        local SunRays = Instance.new("SunRaysEffect")
+        SunRays.Intensity = 0.09
+        SunRays.Spread = 0.85
+        SunRays.Parent = Lighting
+
+        local Atmosphere = Instance.new("Atmosphere")
+        Atmosphere.Density = 0.5
+        Atmosphere.Offset = -0.25
+        Atmosphere.Color = Color3.fromRGB(145, 180, 125)
+        Atmosphere.Decay = Color3.fromRGB(55, 75, 35)
+        Atmosphere.Haze = 4
+        Atmosphere.Glare = 0.1
+        Atmosphere.Parent = Lighting
+
+        Lighting.FogColor = Color3.fromRGB(95, 125, 70)
+        Lighting.FogStart = 35
+        Lighting.FogEnd = 180
+   end,
+})
+
+Tab:CreateButton({
+   Name = "Blue / Cool Lighting",
+   Callback = function()
+        ClearCurrentEffects()
+
+        local Lighting = game:GetService("Lighting")
+        Lighting.Brightness = 2.2
+        Lighting.GlobalShadows = true
+        Lighting.EnvironmentDiffuseScale = 1
+        Lighting.EnvironmentSpecularScale = 1
+        Lighting.ExposureCompensation = 0.1
+        Lighting.ClockTime = 15
+
+        local ColorCorrection = Instance.new("ColorCorrectionEffect")
+        ColorCorrection.TintColor = Color3.fromRGB(175, 225, 255)
+        ColorCorrection.Contrast = 0.15
+        ColorCorrection.Saturation = 0.25
+        ColorCorrection.Brightness = 0.04
+        ColorCorrection.Parent = Lighting
+
+        local Bloom = Instance.new("BloomEffect")
+        Bloom.Intensity = 1.15
+        Bloom.Size = 46
+        Bloom.Threshold = 1
+        Bloom.Parent = Lighting
+
+        local SunRays = Instance.new("SunRaysEffect")
+        SunRays.Intensity = 0.09
+        SunRays.Spread = 0.85
+        SunRays.Parent = Lighting
+
+        local Atmosphere = Instance.new("Atmosphere")
+        Atmosphere.Density = 0.5
+        Atmosphere.Offset = -0.25
+        Atmosphere.Color = Color3.fromRGB(165, 220, 255)
+        Atmosphere.Decay = Color3.fromRGB(55, 105, 155)
+        Atmosphere.Haze = 4
+        Atmosphere.Glare = 0.1
+        Atmosphere.Parent = Lighting
+
+        Lighting.FogColor = Color3.fromRGB(100, 175, 230)
+        Lighting.FogStart = 35
+        Lighting.FogEnd = 180
+   end,
+})
+
+Tab:CreateButton({
+   Name = "Red / Crimson Lighting",
+   Callback = function()
+        ClearCurrentEffects()
+
+        local Lighting = game:GetService("Lighting")
+        Lighting.Brightness = 2.2
+        Lighting.GlobalShadows = true
+        Lighting.EnvironmentDiffuseScale = 1
+        Lighting.EnvironmentSpecularScale = 1
+        Lighting.ExposureCompensation = 0.1
+        Lighting.ClockTime = 15
+
+        local ColorCorrection = Instance.new("ColorCorrectionEffect")
+        ColorCorrection.TintColor = Color3.fromRGB(255, 95, 95)
+        ColorCorrection.Contrast = 0.15
+        ColorCorrection.Saturation = 0.3
+        ColorCorrection.Brightness = 0.04
+        ColorCorrection.Parent = Lighting
+
+        local Bloom = Instance.new("BloomEffect")
+        Bloom.Intensity = 1.15
+        Bloom.Size = 46
+        Bloom.Threshold = 1
+        Bloom.Parent = Lighting
+
+        local SunRays = Instance.new("SunRaysEffect")
+        SunRays.Intensity = 0.09
+        SunRays.Spread = 0.85
+        SunRays.Parent = Lighting
+
+        local Atmosphere = Instance.new("Atmosphere")
+        Atmosphere.Density = 0.5
+        Atmosphere.Offset = -0.25
+        Atmosphere.Color = Color3.fromRGB(255, 90, 90)
+        Atmosphere.Decay = Color3.fromRGB(110, 20, 20)
+        Atmosphere.Haze = 4
+        Atmosphere.Glare = 0.1
+        Atmosphere.Parent = Lighting
+
+        Lighting.FogColor = Color3.fromRGB(150, 35, 35)
+        Lighting.FogStart = 35
+        Lighting.FogEnd = 180
+   end,
+})
+
+Tab:CreateButton({
+   Name = "Purple / Cyber Lighting",
+   Callback = function()
+        ClearCurrentEffects()
+
+        local Lighting = game:GetService("Lighting")
+        Lighting.Brightness = 2.2
+        Lighting.GlobalShadows = true
+        Lighting.EnvironmentDiffuseScale = 1
+        Lighting.EnvironmentSpecularScale = 1
+        Lighting.ExposureCompensation = 0.1
+        Lighting.ClockTime = 15
+
+        local ColorCorrection = Instance.new("ColorCorrectionEffect")
+        ColorCorrection.TintColor = Color3.fromRGB(195, 140, 255)
+        ColorCorrection.Contrast = 0.15
+        ColorCorrection.Saturation = 0.25
+        ColorCorrection.Brightness = 0.04
+        ColorCorrection.Parent = Lighting
+
+        local Bloom = Instance.new("BloomEffect")
+        Bloom.Intensity = 1.15
+        Bloom.Size = 46
+        Bloom.Threshold = 1
+        Bloom.Parent = Lighting
+
+        local SunRays = Instance.new("SunRaysEffect")
+        SunRays.Intensity = 0.09
+        SunRays.Spread = 0.85
+        SunRays.Parent = Lighting
+
+        local Atmosphere = Instance.new("Atmosphere")
+        Atmosphere.Density = 0.5
+        Atmosphere.Offset = -0.25
+        Atmosphere.Color = Color3.fromRGB(185, 120, 255)
+        Atmosphere.Decay = Color3.fromRGB(65, 40, 110)
+        Atmosphere.Haze = 4
+        Atmosphere.Glare = 0.1
+        Atmosphere.Parent = Lighting
+
+        Lighting.FogColor = Color3.fromRGB(120, 80, 180)
+        Lighting.FogStart = 35
+        Lighting.FogEnd = 180
+   end,
+})
+
+Tab:CreateButton({
+   Name = "Reset Lighting to Default",
+   Callback = function()
+        ClearCurrentEffects()
+        
+        local Lighting = game:GetService("Lighting")
+        Lighting.Brightness = 2
+        Lighting.ClockTime = 14
+        Lighting.FogEnd = 100000 
+   end,
+})
+
+local Tab2 = Window:CreateTab("follow me", nil) -- Explicitly using nil for the icon element
+Tab2:CreateButton({
+   Name = "follow my tik tok _turner",
+   Callback = function()
+        -- This function is empty as intended
+   end,
+})
